@@ -1,3 +1,6 @@
+
+
+
 /*
     Bastet - tetris clone with embedded bastard block chooser
     (c) 2005-2009 Federico Poloni <f.polonithirtyseven@sns.it> minus 37
@@ -16,39 +19,93 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
+
+
 #ifndef CONFIG_HPP
 #define CONFIG_HPP
+
+
+
 
 #include <vector>
 #include <string>
 #include <boost/array.hpp>
 
-namespace Bastet{
 
-  struct Keys{
-    int Down;
-    int Left;
-    int Right;
-    int RotateCW;
-    int RotateCCW;
-    int Drop;
-    int Pause;
+
+
+
+namespace Bastet
+{
+
+
+
+	struct Keys
+	{
+
+		int Down;
+		int Left;
+		int Right;
+    
+		int RotateCW;
+		int RotateCCW;
+    
+		int Drop;
+		int Pause;
+
+    };
+
+
+
+
+	struct HighScore
+	{
+
+		int Score;
+    
+		std::string Scorer;
+    
+		bool operator < (const HighScore &b) const
+		{
+      
+			return Score<b.Score;
+    
+		}
+
+
+		bool operator ==(const HighScore &b) const
+		{
+
+			return (Score==b.Score) && 
+				   (Scorer==b.Scorer);
+   
+		}
+
+
   };
 
-  struct HighScore{
-    int Score;
-    std::string Scorer;
-    bool operator < (const HighScore &b) const{
-      return Score<b.Score;
-    }
-    bool operator ==(const HighScore &b) const{
-      return (Score==b.Score) && (Scorer==b.Scorer);
-    }
-  };
+
+
+
 
   extern const size_t HowManyHighScores; //how many high scores to save in the file
 
-  enum difficulty_t {difficulty_normal=0,difficulty_hard=1,num_difficulties=2};
+
+  enum difficulty_t 
+  {
+	  
+	  difficulty_normal=0,
+	  
+	  difficulty_hard=1,
+	  
+	  num_difficulties=2
+  
+  };
+
+
+
+
 
   class HighScores: public std::vector<HighScore>{ //a set would not do the right job (think to ties)
   public:

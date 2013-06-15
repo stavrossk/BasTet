@@ -16,25 +16,84 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "BlockChooser.hpp"
 
+
+#include "BlockChooser.hpp"
 #include <cstdlib> //random
 
-namespace Bastet{
 
-  BlockChooser::BlockChooser(){}
-  BlockChooser::~BlockChooser(){}
 
-  RandomBlockChooser::RandomBlockChooser(){}
-  RandomBlockChooser::~RandomBlockChooser(){}
-  Queue RandomBlockChooser::GetStartingQueue(){
-    Queue q;
-    q.push_back(BlockType(rand()%7));
-    q.push_back(BlockType(rand()%7));
-    return q;
+
+namespace Bastet
+{
+
+
+
+  BlockChooser::BlockChooser()
+  {
+
   }
-  BlockType RandomBlockChooser::GetNext(const Well *well, const Queue &q){
-    return BlockType(rand()%7);
+
+
+  BlockChooser::~BlockChooser()
+  {
+  
+  }
+
+
+
+  RandomBlockChooser::RandomBlockChooser()
+  {
+  
   }
   
+  
+  RandomBlockChooser::~RandomBlockChooser()
+  {
+  
+  }
+  
+  
+  Queue RandomBlockChooser::GetStartingQueue()
+  {
+
+    Queue q;
+    
+	q.push_back
+		(BlockType
+		
+			(rand() %7 )
+		
+		);
+    
+
+	q.push_back
+		(BlockType
+			
+			(rand() %7 )
+			
+		);
+  
+
+
+	return q;
+  
+  }
+
+
+
+
+
+  BlockType RandomBlockChooser::GetNext
+	  (const Well *well, const Queue &q)
+  {
+
+    return BlockType(rand()%7);
+  
+  }
+  
+
+
+
+
 }
